@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactformulier | Neem contact op</title>
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="fotos/rbslogo.jpg" alt="Logo">
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html" data-key="title-over-mij">Over mij</a></li>     
+                    <li><a href="projecten.html" data-key="title-projecten">Projecten</a></li>
+                    <li><a href="index.html" data-key="title-vaardigheden">Vaardigheden</a></li>
+                    <li><a href="index.html" data-key="title-werkervaring">Werkervaring</a></li>
+                    <li><a href="contact.html" data-key="title-contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div class="socials">
+                    <a href="#"><img src="fotos/Linkedin.svg" alt="LinkedIn"></a>
+                    <a href="#"><img src="fotos/Instagram.png" alt="Instagram"></a>
+                </div>
+                <div class="separator"></div>
+                <div class="language">
+                    <button id="language-toggle">EN/NE</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="alles"></div>
+        <section class="contact-section">
+            <div class="contact-container">
+                <div class="form-container">
+                    <h1>Contact</h1>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <div class="input-container">
+                                <label for="naam">Naam*</label>
+                                <input type="text" id="naam" required>
+                            </div>
+                        </div>
+                        <div class="input-container">
+                            <label for="email">Email*</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="input-container">
+                            <label for="aanvraag">Omschrijf uw aanvraag</label>
+                            <textarea id="aanvraag"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Verzenden</button>
+                    </form>
+                </div>
+                <div class="info-container">
+                    <h3>Voor support en info:</h3>
+                    <p><a href="mailto:siebelingrenzo@gmail.com">siebelingrenzo@gmail.com</a></p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-background">
+                <div class="footer-container">
+                    <div class="footer-logo">
+                        <img src="fotos/rbslogo.jpg" alt="Logo">
+                    </div>
+                    <div class="footer-links-socials">
+                        <div class="footer-links">
+                            <h3>Pagina's:</h3>
+                            <ul>
+                                <li><a href="index.html" data-key="title-over-mij">Over mij</a></li>
+                                <li><a href="projecten.html" data-key="title-projecten">Projecten</a></li>
+                                <li><a href="index.html" data-key="title-vaardigheden">Vaardigheden</a></li>
+                                <li><a href="index.html" data-key="title-werkervaring">Werkervaring</a></li>
+                                <li><a href="contact.html" data-key="title-contact">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-socials">
+                            <h3>Socials:</h3>
+                            <ul>
+                                <a href="#"><img src="fotos/Linkedin.svg" alt="LinkedIn"></a>
+                                <a href="#"><img src="fotos/Instagram.png" alt="Instagram"></a>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-copyright">
+                    <p>&copy; 2025 Renzo Siebeling. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+        
+          
+
+    <script src="script.js"></script>
+   
+   <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("contact-form");
+    const emailInput = document.getElementById("email");
+    const naamInput = document.getElementById("naam");
+    const aanvraagInput = document.getElementById("aanvraag");
+
+    form.addEventListener("submit", function (event) {
+        event.preventDefault(); // Voorkomt standaard verzending
+
+        const allowedDomains = ["gmail.com", "hotmail.com", "yahoo.com", "outlook.com", "icloud.com"];
+        const emailValue = emailInput.value.trim().toLowerCase();
+        const emailDomain = emailValue.split("@").pop(); // Haal domein uit e-mailadres
+
+        let errors = [];
+
+        //  Strikte e-mailvalidatie
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailRegex.test(emailValue)) { 
+            errors.push("Ongeldig e-mailadres."); 
+        }
+
+        //  Beperk e-maildomeinen
+        if (!allowedDomains.includes(emailDomain)) {
+            errors.push("Gebruik een e-mailadres van een bekend domein zoals Gmail, Hotmail, Yahoo, Outlook of iCloud.");
+        }
+
+        //  Bescherming tegen XSS (gevaarlijke tekens)
+        const dangerousCharacters = /[<>]/;
+        if (dangerousCharacters.test(naamInput.value) || dangerousCharacters.test(aanvraagInput.value)) {
+            errors.push("Gebruik geen gevaarlijke tekens zoals < of >.");
+        }
+
+        //  Minimale en maximale lengte controles
+        if (naamInput.value.length < 3 || naamInput.value.length > 100) {
+            errors.push("Uw naam moet tussen 3 en 100 tekens bevatten.");
+        }
+        if (aanvraagInput.value.length < 10 || aanvraagInput.value.length > 500) {
+            errors.push("Uw bericht moet tussen 10 en 500 tekens bevatten.");
+        }
+
+        //  Spamfilter: Controleer of de gebruiker geen te snelle input geeft
+        if (aanvraagInput.value.split(" ").length < 3) {
+            errors.push("Uw bericht moet ten minste 3 woorden bevatten.");
+        }
+
+        //  Check of het formulier al eerder is ingediend
+        if (form.dataset.submitted) {
+            errors.push("U heeft dit formulier al ingediend.");
+        }
+
+        //  Als er fouten zijn, toon ze en stop verzending
+        if (errors.length > 0) {
+            alert(errors.join("\n"));
+            return;
+        }
+
+        //  Markeer het formulier als ingediend om dubbele inzendingen te voorkomen
+        form.dataset.submitted = "true";
+
+        //  Debugging (zie de console of het formulier correct wordt verzonden)
+        console.log("Formulier is correct en wordt verzonden.");
+        form.submit();
+    });
+});
+
+
+
+</script> 
+    
+    
+</body>
+</html>

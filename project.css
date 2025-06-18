@@ -1,0 +1,182 @@
+/* Algemene stijl */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #121212;
+    color: white;
+    padding-top: 150px;
+    overflow-x: hidden; /* Voorkomt horizontale scrollbalken */
+}
+
+/* Content Wrapper */
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto; /* Centreert de inhoud */
+    padding: 0 20px; /* Ruimte aan de zijkanten voor kleinere schermen */
+}
+
+/* Project Grid */
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Zorgt voor een 50/50 verdeling */
+    gap: 20px;
+    padding: 20px 0;
+    align-items: start; /* Zorgt dat alles bovenaan uitlijnt */
+}
+
+/* Project Info */
+.project-info {
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    display: grid;
+    grid-template-rows: auto auto 1fr auto; /* Indeling van rijen */
+    gap: 10px; /* Ruimte tussen elementen */
+    height: 250px; /* Gebruik volledige hoogte van de grid */
+}
+
+.project-info h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.project-info p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.project-info #project-site {
+    margin-top: auto; /* Duwt de link naar de onderkant van het blok */
+    color: #1db954;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Slider-afbeeldingen */
+.slider {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.slider img {
+    width: 100%;
+    height: 100%; /* Consistente hoogte */
+    object-fit:contain; /* Zorgt dat de afbeelding goed past */
+}
+
+/* Pijlen zichtbaar maken */
+.slick-prev,
+.slick-next {
+    display: block !important; /* Forceer zichtbaarheid */
+    z-index: 1000; /* Zorg dat ze boven andere elementen staan */
+    background-color: rgba(0, 0, 0, 0.5); /* Achtergrondkleur */
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Maak de pijlen rond */
+}
+
+/* Pijlen positie */
+.slick-prev {
+    left: -50px; /* Plaatsing links buiten slider */
+}
+.slick-next {
+    right: -50px; /* Plaatsing rechts buiten slider */
+}
+
+/* Dots zichtbaar maken */
+.slick-dots {
+    bottom: 10px; /* Zorg dat ze iets hoger in beeld staan */
+}
+.slick-dots li button:before {
+    color: white !important; /* Maak de dots wit */
+    font-size: 12px; /* Pas grootte aan indien nodig */
+}
+
+
+/* Contact Section */
+.contact-section {
+    background-color: #1e1e1e;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.contact-section .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+/* Review Sectie Styling */
+.reviews-section {
+    padding: 40px 0;
+    text-align: center;
+    margin-top: 50px;  /* Ruimte boven de sectie */
+    margin-bottom: 50px;  /* Ruimte onder de sectie */
+}
+
+/* De container die de content beperkt tot 1200px */
+.reviews-section .content-wrapper {
+    max-width: 1200px;  /* Beperk de breedte van de inhoud */
+    margin: 0 auto;  /* Centreer de inhoud */
+    padding: 0 20px;  /* Padding aan de zijkanten van de content */
+}
+
+.reviews-section h2 {
+    font-size: 24px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.reviews {
+    display: flex;
+    justify-content: space-between;  /* Zorgt ervoor dat de reviews naast elkaar staan */
+    gap: 20px;  /* Ruimte tussen de blokken */
+    flex-wrap: wrap;  /* Zorgt ervoor dat ze onder elkaar komen bij kleinere schermen */
+    margin: 20px 20px;
+}
+
+.reviews .review {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1;  /* Zorgt ervoor dat de blokken even groot zijn */
+    min-width: 250px;  /* Minimum breedte voor de blokken */
+    box-sizing: border-box;
+}
+
+.reviews .review p {
+    font-size: 18px;
+    color: white;
+}
+
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .project-grid {
+        grid-template-columns: 1fr; /* Eén kolom voor kleinere schermen */
+    }
+
+    .project-info, .slider {
+        margin-bottom: 20px; /* Extra ruimte tussen elementen */
+    }
+
+    .slider img {
+        height: auto; /* Laat de afbeelding zich aanpassen */
+    }
+
+    .contact-section {
+        margin-top: 30px; /* Minder ruimte op kleinere schermen */
+    }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}

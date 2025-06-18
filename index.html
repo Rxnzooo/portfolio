@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-key="title-home">Home | Neem contact op</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="header.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="fotos/rbslogo.jpg" alt="Logo">
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html" data-key="title-over-mij">Over mij</a></li>
+                    <li><a href="projecten.html" data-key="title-projecten">Projecten</a></li>
+                    <li><a href="index.html" data-key="title-vaardigheden">Vaardigheden</a></li>
+                    <li><a href="index.html" data-key="title-werkervaring">Werkervaring</a></li>
+                    <li><a href="contact.html" data-key="title-contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div class="socials">
+                    <a href="#"><img src="fotos/Linkedin.svg" alt="LinkedIn"></a>
+                    <a href="#"><img src="fotos/Instagram.png" alt="Instagram"></a>
+                </div>
+                <div class="separator"></div>
+                <div class="language">
+                    <button id="language-toggle" data-key="language-toggle">EN/NE</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section-about">
+            <div class="text">
+                <h2 data-key="section-intro">Over mij</h2>
+                <p data-key="section-about">Mijn naam is Renzo Siebeling, 20 jaar oud. Ik ben een Software Developer in
+                    opleiding op het ROC van Amstelland.
+                    <br><br>
+                    Wonende in Aalsmeer vind ik het leuk om in de zomer te varen en met vrienden te chillen en gamen. Ik
+                    ben een sportief persoon, zo doe ik in de zomer aan wielrennen en in de winter te skiën.
+                    <br><br>
+                    Ik ben een persoon die graag nieuwe dingen leert en uitdagingen aangaat. Ik ben altijd op zoek naar
+                    nieuwe projecten en uitdagingen om mezelf te verbeteren en te ontwikkelen.
+                </p>
+            </div>
+            <div class="image">
+                <img src="fotos/overmijfoto.png" alt="Eigenfoto">
+            </div>
+        </section>
+
+        <section class="section-projects">
+            <h2 data-key="section-projects-title">Mijn projecten</h2>
+            <div class="project-image">
+                <!-- Dynamisch ID aan de link toevoegen -->
+                <a href="project.html?id=6" data-key="project-link"> <!-- Vervang 1 door het specifieke ID van het project -->
+                    <img src="fotos/project1.png" alt="Project" data-key="project-img">
+                    <h3 data-key="project-name">Profuze</h3>
+                </a>
+            </div>
+            <div class="project-button">
+                <a href="projecten.html" class="btn" data-key="section-projects-button">Bekijk alle projecten</a>
+            </div>
+        </section>
+
+        <section class="section-skills">
+            <h2 data-key="section-skills-title">Vaardigheden</h2>
+            <div class="timeline">
+                <div class="skill skill-1">
+                    <div class="skill-text">
+                        <h3 data-key="skill-html-css">HTML en CSS</h3>
+                        <p data-key="skill-html-css-desc">Standaard talen die ik heb geleerd aan het begin van de opleiding. Hiermee ook <br>een paar
+                            projecten gemaakt, zoals deze.</p>
+                    </div>
+                </div>
+                <div class="skill skill-2">
+                    <div class="skill-text">
+                        <h3 data-key="skill-php">PHP</h3>
+                        <p data-key="skill-php-desc">Veel ervaring op gedaan met PHP, zoals: OOP, PDO en in frameworks</p>
+                    </div>
+                </div>
+                <div class="skill skill-3">
+                    <div class="skill-text">
+                        <h3 data-key="skill-frameworks">Frameworks</h3>
+                        <p data-key="skill-frameworks-desc">Door de jaren heen ervaring op gedaan met: React, Yii en Laravel</p>
+                    </div>
+                </div>
+                <div class="skill skill-2">
+                    <div class="skill-text">
+                        <h3 data-key="skill-cms">Content management systems</h3>
+                        <p data-key="skill-cms-desc">Veel ervaring met CMS. Website gemaakt in Wordpress en Webflow. <br>Webflow ligt mijn
+                            specialiteit.</p>
+                    </div>
+                </div>
+                <div class="skill skill-3">
+                    <div class="skill-text">
+                        <h3 data-key="skill-python">Python</h3>
+                        <p data-key="skill-python-desc">Aantal oefeningen met Python gedaan, zoals: Flask en JSON/API</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-experience">
+            <h2 data-key="section-experience-title">Werkervaring</h2>
+            <div class="experience-grid">
+                <div class="experience-image">
+                    <img src="fotos/werkervaring-op-je-cv.jpg" alt="Werkervaring" data-key="experience-img">
+                </div>
+                <div class="experience-text">
+                    <h3 data-key="experience-title">Relevante werkervaring</h3>
+                    <p data-key="experience-profuze">Stage: Profuze<br></p>
+                    Werkzaamheden: Website maken voor Profuze, met Webflow. <a href="project.html?id=6" data-key="experience-view">Bekijk</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section class="contact-section">
+        <div class="content-wrapper">
+            <h2 data-key="contact-title">Contact</h2>
+            <p data-key="contact-description">Neem contact op met mij om samen iets moois te maken!</p>
+            <div class="contact-button">
+                <a href="contact.html" class="btn" data-key="contact-button">Ga naar contactpagina</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-background">
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <img src="fotos/rbslogo.jpg" alt="Logo">
+                </div>
+                <div class="footer-links-socials">
+                    <div class="footer-links">
+                        <h3 data-key="footer-pages">Pagina's:</h3>
+                        <ul>
+                            <li><a href="index.html" data-key="title-over-mij">Over mij</a></li>
+                            <li><a href="projecten.html" data-key="title-projecten">Projecten</a></li>
+                            <li><a href="index.html" data-key="title-vaardigheden">Vaardigheden</a></li>
+                            <li><a href="index.html" data-key="title-werkervaring">Werkervaring</a></li>
+                            <li><a href="contact.html" data-key="title-contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-socials">
+                        <h3 data-key="footer-socials">Socials:</h3>
+                        <ul>
+                            <a href="#"><img src="fotos/Linkedin.svg" alt="LinkedIn"></a>
+                            <a href="#"><img src="fotos/Instagram.png" alt="Instagram"></a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p data-key="footer-copyright">&copy; 2025 Renzo Siebeling. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+        <script>
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const skills = document.querySelectorAll(".skill");
+                const observerOptions = {
+                    threshold: 0,  // Voeg de klasse toe zodra het element in beeld komt, zelfs als het maar een klein beetje zichtbaar is.
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("visible");
+                        }
+                    });
+                }, observerOptions);
+
+                skills.forEach((skill) => observer.observe(skill));
+            });
+
+        </script>
+</body>
+
+</html>

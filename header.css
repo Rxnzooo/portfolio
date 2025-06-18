@@ -1,0 +1,90 @@
+  /* Header styling */
+header {
+  background-color: #060D11;
+  padding: 1rem 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Header container */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+/* Logo */
+.logo img {
+  height: 60px; /* Pas de hoogte aan naar wens */
+}
+
+/* Navbar */
+.navbar ul {
+  display: flex; /* Zet de navigatie-items naast elkaar */
+  list-style: none; /* Verwijder de standaard lijststijl */
+  padding: 0; /* Verwijder de standaard padding */
+  margin: 0;  /* Verwijder de standaard margin */
+}
+
+.navbar ul li {
+  margin: 0 1rem; /* Ruimte tussen de navigatie-items */
+}
+
+/* Standaard linkstijl + hover effect */
+.navbar ul li a {
+  text-decoration: none; /* Geen onderlijning */
+  color: white; /* Witte tekst */
+  font-weight: 500; /* Dikte van de tekst */
+  font-size: 1rem; /* Grootte van de tekst */
+  transition: color 0.3s ease; /* Vloeiende kleurovergang bij hover */
+}
+
+.navbar ul li a:hover {
+  color: #00aaff; /* Lichtblauw bij hover */
+}
+
+/* Socials en taalkeuze */
+.header-right {
+  display: flex; /* Zet de socials en taalkeuze naast elkaar */
+  align-items: center; /* Verticaal centreren */
+}
+
+.socials a {
+  margin: 0 5px; /* Ruimte tussen de social icons */
+}
+
+.socials img {
+  height: 24px; /* Zorgt ervoor dat de social icons niet te groot zijn */
+  transition: transform 0.3s ease;
+}
+
+.socials a:hover img {
+  transform: scale(1.1); /* Klein zoom effect bij hover */
+}
+  
+  /* Taalkeuze knop */
+  .language button {
+    background-color: #00aaff; /* Blauwe achtergrond */
+    color: white; /* Witte tekst */
+    border: none; /* Geen rand */
+    padding: 0.5rem 1rem; /* Ruimte binnen de knop */
+    font-size: 0.9rem; /* Kleinere tekst */
+    cursor: pointer; /* Handje bij hover */
+    transition: all 0.3s ease; /* Vloeiende overgang bij hover */
+  }
+  
+  .language button:hover {
+    background-color: #0088cc; /* Iets donkerder blauw bij hover */
+  }
+
+  .separator {
+    width: 2px; /* Breedte van de lijn */
+    height: 30px; /* Hoogte van de lijn */
+    background-color: white; /* Kleur van de lijn */
+    margin: 0 15px; /* Ruimte rond de lijn */
+  }

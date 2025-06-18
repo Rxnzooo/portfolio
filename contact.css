@@ -1,0 +1,110 @@
+/* Algemene body styling */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #121212;
+    color: white;
+    padding-top: 150px; /* Zorgt ervoor dat de inhoud niet overlapt met de header */
+    overflow-x: hidden; /* Voorkomt horizontale scrollbalk */
+  }
+  
+  /* Max breedte en centreren van alle content BEHALVE de header */
+  .contact-section {
+    width: 100%; /* Zorgt ervoor dat de achtergrond de volledige breedte neemt */
+    padding: 40px 20px; /* Zorgt ervoor dat er geen ruimte aan de zijkanten is */
+    background-color: #121212; /* Achtergrondkleur voor de contact sectie */
+  }
+  
+  .contact-container {
+    display: flex;
+    gap: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 1200px; /* Maximaal 1200px breedte voor de inhoud */
+    width: 100%;
+    padding: 40px;
+    background-color: #121212; /* Zachte achtergrondkleur voor de inhoud */
+    margin: 0 auto; /* Zorgt ervoor dat de inhoud gecentreerd wordt */
+  }
+  
+  .form-container, .info-container {
+    flex: 1;
+  }
+  
+  .form-container h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  .form-group {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .input-container {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  .input-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .input-container input,
+  .input-container textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+  }
+  
+  .input-container textarea {
+    resize: vertical;
+    height: 100px;
+  }
+  
+  .submit-btn {
+    width: 104%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: blue;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  /* Info container styling */
+  .info-container h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .info-container p {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  
+  .info-container a {
+    color: #e63946;
+    text-decoration: none;
+  }
+  
+  .info-container a:hover {
+    text-decoration: underline;
+  }
+  
+  #form-status {
+    margin-top: 15px;
+    font-size: 16px;
+  }
+  
+  

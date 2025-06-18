@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-key="title-projecten">Projecten | Neem contact op</title>
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="projecten.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="fotos/rbslogo.jpg" alt="Logo" data-key="logo-alt">
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html" data-key="title-over-mij">Over mij</a></li>     
+                    <li><a href="projecten.html" data-key="title-projecten">Projecten</a></li>
+                    <li><a href="index.html" data-key="title-vaardigheden">Vaardigheden</a></li>
+                    <li><a href="index.html" data-key="title-werkervaring">Werkervaring</a></li>
+                    <li><a href="contact.html" data-key="title-contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div class="socials">
+                    <a href="#"><img src="fotos/Linkedin.svg" alt="LinkedIn" data-key="social-linkedin"></a>
+                    <a href="#"><img src="fotos/Instagram.png" alt="Instagram" data-key="social-instagram"></a>
+                </div>
+                <div class="separator"></div>
+                <div class="language">
+                    <button id="language-toggle" data-key="language-toggle">EN/NE</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="content-wrapper">
+            <div class="project-header">
+                <h2 data-key="section-projecten-title">Projecten</h2>
+                <select id="project-filter" data-key="select-filter">
+                    <option value="" data-key="filter-all">Alle projecten</option>
+                    <option value="recent" data-key="filter-recent">Recent toegevoegd</option>
+                    <option value="meest-bekeken" data-key="filter-most-viewed">Meest bekeken</option>
+                    <option value="eerste-project" data-key="filter-first-project">Eerste project</option>
+                </select>
+            </div>
+        </div>
+
+        <section class="project-grid content-wrapper">
+            <!-- Projecten dynamisch laden -->
+            <div class="project">
+                <a href="project.html?id=6" data-key="project-1">
+                    <img src="fotos/project1.png" alt="Project 1" data-key="project-1-img">
+                    <h2 data-key="project-1-title">Website voor Profuze</h2>
+                </a>
+            </div>
+        </section>
+
+        <!-- Nieuwe Review Sectie boven de contact sectie -->
+        <section class="reviews-section content-wrapper">
+            <h2 data-key="reviews-title">Reviews</h2>
+            <div class="reviews">
+                <div class="review">
+                    <p data-key="review-text">"Perfect uitgevoerd, alles is naar wens en deed alles wat we van hem vroegen"<br><br> - Profuze</p>
+                </div>               
+        </section>
+
+        <section class="contact-section">
+            <div class="content-wrapper">
+                <h2 data-key="contact-title">Contact</h2>
+                <p data-key="contact-desc">Neem contact op met mij om samen iets moois te maken!</p>
+                <div class="contact-button">
+                    <a href="contact.html" class="btn" data-key="contact-button">Ga naar contactpagina</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-background">
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <img src="fotos/rbslogo.jpg" alt="Logo" data-key="footer-logo-alt">
+                </div>
+                <div class="footer-links-socials">
+                    <div class="footer-links">
+                        <h3 data-key="footer-pages">Pagina's:</h3>
+                        <ul>
+                            <li><a href="index.html" data-key="title-over-mij">Over mij</a></li>
+                            <li><a href="projecten.html" data-key="title-projecten">Projecten</a></li>
+                            <li><a href="index.html" data-key="title-vaardigheden">Vaardigheden</a></li>
+                            <li><a href="index.html" data-key="title-werkervaring">Werkervaring</a></li>
+                            <li><a href="contact.html" data-key="title-contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-socials">
+                        <h3 data-key="footer-socials">Socials:</h3>
+                        <ul>
+                            <a href="#" data-key="footer-linkedin"><img src="fotos/Linkedin.svg" alt="LinkedIn"></a>
+                            <a href="#" data-key="footer-instagram"><img src="fotos/Instagram.png" alt="Instagram"></a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2025 Renzo Siebeling. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>   
+    <script src="script.js"></script>
+    <script>
+        const projectGrid = document.querySelector('.project-grid');
+        const filter = document.getElementById('project-filter');
+    
+        // Functie om projecten te laden
+        const loadProjects = (category = '') => {
+            let url = 'http://localhost:3002/api/projects';
+            if (category) {
+                url += `?category=${category}`;
+            }
+    
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    projectGrid.innerHTML = ''; // Maak het rooster leeg
+                    data.forEach(project => {
+                        const projectDiv = document.createElement('div');
+                        projectDiv.classList.add('project');
+                        projectDiv.innerHTML = `
+                            <a href="project.html?id=${project.id}" data-key="project-${project.id}">
+                                <img src="${project.image_url}" alt="${project.name}" data-key="project-${project.id}-img">
+                                <h2 data-key="project-${project.id}-title">${project.name}</h2>
+                            </a>
+                        `;
+                        projectGrid.appendChild(projectDiv);
+                    });
+                })
+                .catch(error => console.error("Fout bij het ophalen van projecten:", error));
+        };
+    
+        // Laad standaard alle projecten
+        loadProjects();
+    
+        // Filter projecten wanneer de gebruiker een optie kiest
+        filter.addEventListener('change', (e) => {
+            loadProjects(e.target.value);
+        });
+    </script>
+</body>
+</html>

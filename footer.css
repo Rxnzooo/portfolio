@@ -1,0 +1,84 @@
+/* Footer styling */
+footer {
+  background-color: #04090C; /* Achtergrondkleur van de footer */
+  color: white; /* Tekstkleur in de footer */
+  padding: 50px 0; /* Ruimte binnen de footer */
+  width: 100%; /* Zorgt ervoor dat de footer de volledige breedte van het scherm inneemt */
+  margin-top: auto; /* Zet de footer altijd naar onderen */
+  overflow-x: hidden; /* Voorkomt horizontale scrollbalk in de footer */
+}
+
+.footer-background {
+  width: 100%;
+  background-color: #04090C; /* Zorg ervoor dat de achtergrond de volledige breedte beslaat */
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between; /* Zorgt ervoor dat de inhoud naar beide kanten wordt uitgelijnd */
+  align-items: flex-start;
+  max-width: 1200px; /* Maximaal 1200px breedte voor de inhoud */
+  margin: 0 auto; /* Zorgt ervoor dat de inhoud gecentreerd blijft */
+  padding: 0 20px; /* Zorgt voor wat ruimte rondom de inhoud */
+}
+
+.footer-logo img {
+  height: 200px; /* Pas de hoogte aan naar wens */
+  width: 300px;
+}
+
+.footer-links-socials {
+  display: flex;
+  justify-content: flex-start; /* Zorgt ervoor dat de links en socials naar links worden uitgelijnd */
+  margin-right: 290px; /* Ruimte tussen de links/socials en het logo */
+  gap: 60px;
+}
+
+
+.footer-links, .footer-socials {
+  margin-bottom: 20px;
+}
+
+.footer-links ul, .footer-socials ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links ul li, .footer-socials ul li {
+  margin: 0.5rem 0;
+}
+
+.footer-links ul li a, .footer-socials ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover, .footer-socials ul li a:hover {
+  color: #00aaff;
+}
+
+.footer-socials ul {
+  display: flex;
+  flex-direction: column; /* Zorgt ervoor dat de socials onder elkaar staan */
+}
+
+.footer-socials img {
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.footer-socials a:hover img {
+  transform: scale(1.1);
+} 
+
+.footer-copyright {
+  font-size: 0.8rem;
+  text-align: center;
+  margin-top: 20px; /* Ruimte boven de copyright tekst */
+  width: 100%; /* Zorgt ervoor dat de copyright sectie de volledige breedte heeft */
+  margin-left: 195px;
+}

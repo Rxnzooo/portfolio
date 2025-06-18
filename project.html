@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project | Neem contact op</title>
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="project.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="fotos/rbslogo.jpg" alt="Logo">
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html" data-key="title-over-mij">Over mij</a></li>     
+                    <li><a href="projecten.html" data-key="title-projecten">Projecten</a></li>
+                    <li><a href="index.html" data-key="title-vaardigheden">Vaardigheden</a></li>
+                    <li><a href="index.html" data-key="title-werkervaring">Werkervaring</a></li>
+                    <li><a href="contact.html" data-key="title-contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div class="socials">
+                    <a href="#"><img src="fotos/Linkedin.svg" alt="LinkedIn"></a>
+                    <a href="#"><img src="fotos/Instagram.png" alt="Instagram"></a>
+                </div>
+                <div class="separator"></div>
+                <div class="language">
+                    <button id="language-toggle">EN/NE</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div id="project-details" class="project-grid content-wrapper">
+            <!-- Project informatie -->
+            <div class="project-info">
+                <h2 id="project-name"></h2>
+                <p id="project-description"></p>
+                
+            </div>
+            
+            <!-- Project afbeeldingen -->
+            <div class="slider">
+                <div><img id="project-image1" src="" alt="Project Image 1"></div>
+                <div><img id="project-image2" src="" alt="Project Image 2"></div>
+                <div><img id="project-image3" src="" alt="Project Image 3"></div>
+                <div><img id="project-image4" src="" alt="Project Image 4"></div>
+                <div><img id="project-image5" src="" alt="Project Image 5"></div>
+            </div>
+        </div>
+    </main>
+
+<section class="contact-section">
+    <div class="content-wrapper">
+        <h2>Contact</h2>
+        <p>Neem contact op om samen een project te maken!</p>
+        <div class="contact-button">
+            <a href="contact.html" class="btn">Ga naar contactpagina</a>
+        </div>
+    </div>
+</section>
+    </section>
+
+    <footer>
+        <div class="footer-background">
+            <div class="footer-container content-wrapper">
+                <div class="footer-logo">
+                    <img src="fotos/rbslogo.jpg" alt="Logo">
+                </div>
+                <div class="footer-links-socials">
+                    <div class="footer-links">
+                        <h3>Pagina's:</h3>
+                        <ul>
+                            <li><a href="index.html" data-key="title-over-mij">Over mij</a></li>
+                            <li><a href="projecten.html" data-key="title-projecten">Projecten</a></li>
+                            <li><a href="index.html" data-key="title-vaardigheden">Vaardigheden</a></li>
+                            <li><a href="index.html" data-key="title-werkervaring">Werkervaring</a></li>
+                            <li><a href="contact.html" data-key="title-contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-socials">
+                        <h3>Socials:</h3>
+                        <ul>
+                            <a href="#"><img src="fotos/Linkedin.svg" alt="LinkedIn"></a>
+                            <a href="#"><img src="fotos/Instagram.png" alt="Instagram"></a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2025 Renzo Siebeling. All rights reserved.</p>
+            </div>
+        </div>
+    </footer> 
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const projectId = urlParams.get('id');
+    
+            // Controleer of projectId bestaat in de URL
+            if (projectId) {
+                fetch(`http://localhost:3002/api/projects/${projectId}`)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`Project met ID ${projectId} niet gevonden.`);
+                        }
+                        return response.json();
+                    })
+                    .then(project => {
+                        console.log(project);
+                        if (project.name) {
+                            document.getElementById('project-name').textContent = project.name; 
+                        }
+                        if (project.description) {
+                            document.getElementById('project-description').textContent = project.description;
+                        }
+                        if (project.image_url) {
+                            document.getElementById('project-image1').src = project.image_url;
+                        }
+                        if (project.image_url1) {
+                            document.getElementById('project-image2').src = project.image_url1;
+                        }
+                        if (project.image_url) {
+                            document.getElementById('project-image3').src = project.image_url3;
+                        }
+                        if (project.image_url) {
+                            document.getElementById('project-image4').src = project.image_url4;
+                        }
+                        if (project.image_url) {
+                            document.getElementById('project-image5').src = project.image_url5;
+                        }
+                     
+                        // Initialiseer de slider
+                        $('.slider').slick({
+                            dots: true,
+                            infinite: true,
+                            speed: 300,
+                            slidesToShow: 1,
+                            adaptiveHeight: true,
+                            arrows: true,
+                            autoplay: true,
+                            autoplaySpeed: 2000,
+                            pauseOnHover: true,
+                        });
+                    })
+                    .catch(err => {
+                        console.error('Fout bij het ophalen van project:', err);
+                        document.getElementById('project-details').innerHTML = `
+                            <p style="color: red;">Er is een fout opgetreden: ${err.message}</p>
+                        `;
+                    });
+            } else {
+                alert('Project ID ontbreekt in de URL!');
+            }
+        });
+    </script>
+    
+</body>
+</html>

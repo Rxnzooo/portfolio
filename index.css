@@ -1,0 +1,262 @@
+/* Algemene body styling */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #121212;
+  color: white;
+  padding-top: 150px;
+}
+
+/* Max breedte en centreren van alle content BEHALVE de header */
+main, section, .content {
+  margin: 0 auto;
+  padding: 0 20px; /* Voorkomt dat de content tegen de rand zit */
+}
+
+.section-about {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Twee kolommen: 50% tekst, 50% afbeelding */
+  align-items: start; /* Tekst uitlijnen aan de bovenkant */
+  gap: 175px; /* Ruimte tussen tekst en afbeelding */
+  max-width: 1200px; /* Optioneel: Maximale breedte */
+  margin: 0 auto; /* Centreert de sectie */
+}
+
+.text {
+  text-align: left;
+}
+
+.image img {
+  width: auto; /* Past zich aan de kolombreedte aan */
+  max-width: 400px; /* Optioneel: Maximale breedte */
+  height: auto; /* Houdt de verhoudingen correct */
+  display: block; /* Voorkomt extra witruimte onder de afbeelding */
+}
+
+.section-projects {
+  text-align: center;
+  max-width: 1200px;
+  padding: 40px 20px;
+}
+
+.section-projects h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  text-align: left;
+}
+
+.project-image img {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.project-image h3 {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.project-button .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: blue;
+  text-decoration: none;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.section-experience {
+  text-align: left;
+  padding: 40px 20px;
+  max-width: 1200px;
+}
+
+.section-experience h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.experience-image img {
+  width: 100%;
+  height: 500px;
+  border-radius: 8px;
+}
+
+.experience-text {
+  text-align: left;
+}
+
+.section-skills {
+  position: relative;
+  padding: 40px 20px;
+}
+
+.section-skills h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 32px;
+}
+
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.skill {
+  position: relative;
+  margin: 50px 0;
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 0.8s ease-out;
+}
+
+.skill.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skill-1 .skill-text {
+  position: relative;
+  text-align: left;
+  left: 50%;
+  transform: translateX(40px);
+  margin-top: 70px;
+}
+
+.skill-2 .skill-text {
+  position: relative;
+  text-align: right;
+  left: -50%;
+  transform: translateX(-40px);
+  margin-top: 60px;
+
+}
+
+.skill-3 .skill-text {
+  position: relative;
+  text-align: left;
+  left: 50%;
+  transform: translateX(40px);
+  margin-top: 60px;
+}
+
+/* Central timeline line */
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 4px;
+  height: 100%;
+  background-color: white;
+  transform: translateX(-50%);
+}
+
+.skill-1::after,
+.skill-2::after,
+.skill-3::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 20px;
+  height: 4px;
+  background-color: white;
+  transform: translateY(-50%);
+}
+
+.skill-1::after {
+  left: calc(50% + 10px);
+}
+
+.skill-2::after {
+  right: calc(50% + 10px);
+}
+
+.skill-3::after {
+  left: calc(50% + 10px);
+}
+
+.skill-text.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.contact-section {
+  background-color: #1e1e1e;
+  width: 100vw; /* Volledige breedte van het scherm */
+  padding: 40px 0;
+}
+
+.contact-section .content-wrapper {
+  margin: 0 auto; /* Centreert de content-wrapper */
+  padding: 0 20px; /* Voorkomt dat de content tegen de randen plakt */
+  text-align: center;
+}
+
+
+
+.contact-section .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: blue;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+/* Review Sectie Styling */
+.reviews-section {
+  padding: 40px 0;
+  text-align: center;
+  margin-top: 50px;  /* Ruimte boven de sectie */
+  margin-bottom: 50px;  /* Ruimte onder de sectie */
+}
+
+/* De container die de content beperkt tot 1200px */
+.reviews-section .content-wrapper {
+  max-width: 1200px;  /* Beperk de breedte van de inhoud */
+  margin: 0 auto;  /* Centreer de inhoud */
+  padding: 0 20px;  /* Padding aan de zijkanten van de content */
+}
+
+.reviews-section h2 {
+  font-size: 24px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.reviews {
+  display: flex;
+  justify-content: space-between;  /* Zorgt ervoor dat de reviews naast elkaar staan */
+  gap: 20px;  /* Ruimte tussen de blokken */
+  flex-wrap: wrap;  /* Zorgt ervoor dat ze onder elkaar komen bij kleinere schermen */
+  margin: 20px 20px;
+}
+
+.reviews .review {
+  background-color: #333;
+  padding: 20px;
+  border-radius: 10px;
+  flex: 1;  /* Zorgt ervoor dat de blokken even groot zijn */
+  min-width: 250px;  /* Minimum breedte voor de blokken */
+  box-sizing: border-box;
+}
+
+.reviews .review p {
+  font-size: 18px;
+  color: white;
+}
