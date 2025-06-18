@@ -101,77 +101,7 @@
         
           
 
-    <script src="script.js"></script>
-   
-   <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("contact-form");
-    const emailInput = document.getElementById("email");
-    const naamInput = document.getElementById("naam");
-    const aanvraagInput = document.getElementById("aanvraag");
-
-    form.addEventListener("submit", function (event) {
-        event.preventDefault(); // Voorkomt standaard verzending
-
-        const allowedDomains = ["gmail.com", "hotmail.com", "yahoo.com", "outlook.com", "icloud.com"];
-        const emailValue = emailInput.value.trim().toLowerCase();
-        const emailDomain = emailValue.split("@").pop(); // Haal domein uit e-mailadres
-
-        let errors = [];
-
-        //  Strikte e-mailvalidatie
-        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        if (!emailRegex.test(emailValue)) { 
-            errors.push("Ongeldig e-mailadres."); 
-        }
-
-        //  Beperk e-maildomeinen
-        if (!allowedDomains.includes(emailDomain)) {
-            errors.push("Gebruik een e-mailadres van een bekend domein zoals Gmail, Hotmail, Yahoo, Outlook of iCloud.");
-        }
-
-        //  Bescherming tegen XSS (gevaarlijke tekens)
-        const dangerousCharacters = /[<>]/;
-        if (dangerousCharacters.test(naamInput.value) || dangerousCharacters.test(aanvraagInput.value)) {
-            errors.push("Gebruik geen gevaarlijke tekens zoals < of >.");
-        }
-
-        //  Minimale en maximale lengte controles
-        if (naamInput.value.length < 3 || naamInput.value.length > 100) {
-            errors.push("Uw naam moet tussen 3 en 100 tekens bevatten.");
-        }
-        if (aanvraagInput.value.length < 10 || aanvraagInput.value.length > 500) {
-            errors.push("Uw bericht moet tussen 10 en 500 tekens bevatten.");
-        }
-
-        //  Spamfilter: Controleer of de gebruiker geen te snelle input geeft
-        if (aanvraagInput.value.split(" ").length < 3) {
-            errors.push("Uw bericht moet ten minste 3 woorden bevatten.");
-        }
-
-        //  Check of het formulier al eerder is ingediend
-        if (form.dataset.submitted) {
-            errors.push("U heeft dit formulier al ingediend.");
-        }
-
-        //  Als er fouten zijn, toon ze en stop verzending
-        if (errors.length > 0) {
-            alert(errors.join("\n"));
-            return;
-        }
-
-        //  Markeer het formulier als ingediend om dubbele inzendingen te voorkomen
-        form.dataset.submitted = "true";
-
-        //  Debugging (zie de console of het formulier correct wordt verzonden)
-        console.log("Formulier is correct en wordt verzonden.");
-        form.submit();
-    });
-});
-
-
-
-</script> 
+    <script src="script.js"></script> 
     
     
 </body>
