@@ -18,8 +18,8 @@
                 <ul>
                     <li><a href="index.html" data-key="title-over-mij">Over mij</a></li>     
                     <li><a href="projecten.html" data-key="title-projecten">Projecten</a></li>
-                    <li><a href="index.html" data-key="title-vaardigheden">Vaardigheden</a></li>
-                    <li><a href="index.html" data-key="title-werkervaring">Werkervaring</a></li>
+                    <li><a href="index.html#vaardigheden" data-key="title-vaardigheden">Vaardigheden</a></li>
+                    <li><a href="index.html#werkervaring" data-key="title-werkervaring">Werkervaring</a></li>
                     <li><a href="contact.html" data-key="title-contact">Contact</a></li>
                 </ul>
             </nav>
@@ -92,7 +92,7 @@
                             <li><a href="index.html" data-key="title-over-mij">Over mij</a></li>
                             <li><a href="projecten.html" data-key="title-projecten">Projecten</a></li>
                             <li><a href="index.html" data-key="title-vaardigheden">Vaardigheden</a></li>
-                            <li><a href="index.html" data-key="title-werkervaring">Werkervaring</a></li>
+                            <li><a href="index.html#werkervaring" data-key="title-werkervaring">Werkervaring</a></li>
                             <li><a href="contact.html" data-key="title-contact">Contact</a></li>
                         </ul>
                     </div>
@@ -111,6 +111,43 @@
         </div>
     </footer>   
     <script src="script.js"></script>
+    <script>
+        const projectGrid = document.querySelector('.project-grid');
+        const filter = document.getElementById('project-filter');
     
+        // Functie om projecten te laden
+        const loadProjects = (category = '') => {
+            let url = 'http://localhost:3002/api/projects';
+            if (category) {
+                url += `?category=${category}`;
+            }
+    
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    projectGrid.innerHTML = ''; // Maak het rooster leeg
+                    data.forEach(project => {
+                        const projectDiv = document.createElement('div');
+                        projectDiv.classList.add('project');
+                        projectDiv.innerHTML = `
+                            <a href="project.html?id=${project.id}" data-key="project-${project.id}">
+                                <img src="${project.image_url}" alt="${project.name}" data-key="project-${project.id}-img">
+                                <h2 data-key="project-${project.id}-title">${project.name}</h2>
+                            </a>
+                        `;
+                        projectGrid.appendChild(projectDiv);
+                    });
+                })
+                .catch(error => console.error("Fout bij het ophalen van projecten:", error));
+        };
+    
+        // Laad standaard alle projecten
+        loadProjects();
+    
+        // Filter projecten wanneer de gebruiker een optie kiest
+        filter.addEventListener('change', (e) => {
+            loadProjects(e.target.value);
+        });
+    </script>
 </body>
 </html>

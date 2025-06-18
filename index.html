@@ -19,10 +19,10 @@
             </div>
             <nav class="navbar">
                 <ul>
-                    <li><a href="index.html" data-key="title-over-mij">Over mij</a></li>
+                    <li><a href="#over-mij" data-key="title-over-mij">Over mij</a></li>
                     <li><a href="projecten.html" data-key="title-projecten">Projecten</a></li>
-                    <li><a href="index.html" data-key="title-vaardigheden">Vaardigheden</a></li>
-                    <li><a href="index.html" data-key="title-werkervaring">Werkervaring</a></li>
+                    <li><a href="#vaardigheden" data-key="title-vaardigheden">Vaardigheden</a></li>
+                    <li><a href="#werkervaring" data-key="title-werkervaring">Werkervaring</a></li>
                     <li><a href="contact.html" data-key="title-contact">Contact</a></li>
                 </ul>
             </nav>
@@ -40,7 +40,7 @@
     </header>
 
     <main>
-        <section class="section-about">
+        <section id="over-mij" class="section-about">
             <div class="text">
                 <h2 data-key="section-intro">Over mij</h2>
                 <p data-key="section-about">Mijn naam is Renzo Siebeling, 20 jaar oud. Ik ben een Software Developer in
@@ -58,11 +58,10 @@
             </div>
         </section>
 
-        <section class="section-projects">
+        <section id="projecten" class="section-projects">
             <h2 data-key="section-projects-title">Mijn projecten</h2>
             <div class="project-image">
-                <!-- Dynamisch ID aan de link toevoegen -->
-                <a href="project.html?id=6" data-key="project-link"> <!-- Vervang 1 door het specifieke ID van het project -->
+                <a href="project.html?id=6" data-key="project-link">
                     <img src="fotos/project1.png" alt="Project" data-key="project-img">
                     <h3 data-key="project-name">Profuze</h3>
                 </a>
@@ -72,7 +71,7 @@
             </div>
         </section>
 
-        <section class="section-skills">
+        <section id="vaardigheden" class="section-skills">
             <h2 data-key="section-skills-title">Vaardigheden</h2>
             <div class="timeline">
                 <div class="skill skill-1">
@@ -110,7 +109,7 @@
             </div>
         </section>
 
-        <section class="section-experience">
+        <section id="werkervaring" class="section-experience">
             <h2 data-key="section-experience-title">Werkervaring</h2>
             <div class="experience-grid">
                 <div class="experience-image">
@@ -145,10 +144,10 @@
                     <div class="footer-links">
                         <h3 data-key="footer-pages">Pagina's:</h3>
                         <ul>
-                            <li><a href="index.html" data-key="title-over-mij">Over mij</a></li>
-                            <li><a href="projecten.html" data-key="title-projecten">Projecten</a></li>
-                            <li><a href="index.html" data-key="title-vaardigheden">Vaardigheden</a></li>
-                            <li><a href="index.html" data-key="title-werkervaring">Werkervaring</a></li>
+                            <li><a href="#over-mij" data-key="title-over-mij">Over mij</a></li>
+                            <li><a href="#projecten" data-key="title-projecten">Projecten</a></li>
+                            <li><a href="#vaardigheden" data-key="title-vaardigheden">Vaardigheden</a></li>
+                            <li><a href="#werkervaring" data-key="title-werkervaring">Werkervaring</a></li>
                             <li><a href="contact.html" data-key="title-contact">Contact</a></li>
                         </ul>
                     </div>
@@ -169,26 +168,24 @@
 
     <script src="script.js"></script>
 
-        <script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const skills = document.querySelectorAll(".skill");
+            const observerOptions = {
+                threshold: 0,
+            };
 
-            document.addEventListener("DOMContentLoaded", function () {
-                const skills = document.querySelectorAll(".skill");
-                const observerOptions = {
-                    threshold: 0,  // Voeg de klasse toe zodra het element in beeld komt, zelfs als het maar een klein beetje zichtbaar is.
-                };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            }, observerOptions);
 
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add("visible");
-                        }
-                    });
-                }, observerOptions);
-
-                skills.forEach((skill) => observer.observe(skill));
-            });
-
-        </script>
+            skills.forEach((skill) => observer.observe(skill));
+        });
+    </script>
 </body>
 
 </html>
