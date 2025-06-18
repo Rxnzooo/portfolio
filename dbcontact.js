@@ -15,7 +15,7 @@ const db = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "",
-    database: "contact-portfolio" 
+    database: "projecten" 
 });
 
 db.connect(err => {
