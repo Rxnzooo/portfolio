@@ -1,33 +1,44 @@
 document.addEventListener("DOMContentLoaded", function () { 
-    const languageToggle = document.getElementById("language-toggle"); // Knop om taal te wisselen
-    let currentLang = "nl"; // Start in Nederlands
+    const languageToggle = document.getElementById("language-toggle");
+    let currentLang = localStorage.getItem("lang") || "nl"; // Haal gekozen taal op uit localStorage
 
-    function switchLanguage() { // Functie om taal te wisselen 
-        if (currentLang === "nl") { // Als taal Nederlands is 
-            fetch("translations.json") // Vertalingen inladen
-                .then(response => response.json()) // JSON bestand inladen
-                .then(translations => {  // Vertalingen inladen
-                    document.querySelectorAll("[data-key]").forEach(element => { // Voor elk element met data-key 
-                        const key = element.getAttribute("data-key");
-                        if (translations[key]) { // Als vertaling bestaat
-                            element.innerText = translations[key]; // Verander tekst naar vertaling
-                        }
-                    });
-                    currentLang = "en"; // Verander taal naar Engels
-                    languageToggle.innerText = "NE/EN"; // Verander knop tekst
-                })
-                .catch(error => console.error("Fout bij laden van vertalingen:", error)); // Foutmelding bij laden vertalingen
+    function applyTranslations(lang) {
+        fetch("translations.json")
+            .then(response => response.json())
+            .then(translations => {
+                document.querySelectorAll("[data-key]").forEach(element => {
+                    const key = element.getAttribute("data-key");
+                    if (translations[key]) {
+                        element.innerText = translations[key];
+                    }
+                });
+                currentLang = lang;
+                localStorage.setItem("lang", lang); // Sla gekozen taal op
+                languageToggle.innerText = lang === "en" ? "NE/EN" : "EN/NE";
+            })
+            .catch(error => console.error("Fout bij laden van vertalingen:", error));
+    }
+
+    function switchLanguage() {
+        if (currentLang === "nl") {
+            applyTranslations("en");
         } else {
-            document.location.reload(); // Vernieuwt pagina om terug naar NL te gaan
+            localStorage.setItem("lang", "nl"); // Zet terug naar NL
+            document.location.reload(); // Laad opnieuw om standaard NL te tonen
         }
     }
 
-    languageToggle.addEventListener("click", switchLanguage); // Wissel taal bij klik op knop
+    languageToggle.addEventListener("click", switchLanguage);
+
+    // Als opgeslagen taal Engels is, pas direct toe bij laden
+    if (currentLang === "en") {
+        applyTranslations("en");
+    }
+});
 
     // Dynamisch jaar instellen voor copyright
     const currentYear = new Date().getFullYear();
     document.querySelector(".footer-copyright p").innerText = `© ${currentYear} Renzo Siebeling. All rights reserved.`; 
-});
 
 document.getElementById("contact-form").addEventListener("submit", async function(event) {
     event.preventDefault();  // Voorkomt dat de pagina vernieuwt
