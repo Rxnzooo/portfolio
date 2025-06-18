@@ -7,6 +7,10 @@ body {
   padding-top: 150px;
 }
 
+html {
+  scroll-behavior: smooth; /* Zorgt voor een vloeiende scroll bij ankerlinks */
+}
+
 /* Max breedte en centreren van alle content BEHALVE de header */
 main, section, .content {
   margin: 0 auto;
