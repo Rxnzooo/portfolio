@@ -5,6 +5,7 @@ body {
   background-color: #121212;
   color: white;
   padding-top: 150px;
+  overflow-x: hidden; /* Voorkomt horizontale scrollbalk */
 }
 
 html {
@@ -74,8 +75,9 @@ main, section, .content {
 
 .section-experience {
   text-align: left;
-  padding: 40px 20px;
+  padding: 40px 40px;
   max-width: 1200px;
+  margin-bottom: 40px;
 }
 
 .section-experience h2 {
@@ -263,4 +265,11 @@ main, section, .content {
 .reviews .review p {
   font-size: 18px;
   color: white;
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Flexibele kolommen */
+  gap: 20px; /* Ruimte tussen de items */
+
 }
