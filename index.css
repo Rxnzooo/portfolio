@@ -74,7 +74,7 @@ main, section, .content {
 }
 
 .section-experience {
-  text-align: left;
+  text-align: center;
   padding: 40px 40px;
   max-width: 1200px;
   margin-bottom: 40px;
@@ -86,25 +86,37 @@ main, section, .content {
 }
 
 .experience-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   gap: 20px;
   align-items: start;
 }
-
-.experience-image img {
-  width: 100%;
-  height: 500px;
-  border-radius: 8px;
-}
-
 .experience-text {
   text-align: left;
+  background-color: #333;
+  padding: 20px;
+  border-radius: 12px;
 }
 
+.experience-text1 {
+  text-align: left;
+  background-color: #333;
+  padding: 20px;
+  border-radius: 12px;
+}
 .section-skills {
   position: relative;
   padding: 40px 20px;
+}
+
+.button-container .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: blue;
+  text-decoration: none;
+  border-radius: 8px;
+  margin-top: 20px;
 }
 
 .section-skills h2 {
