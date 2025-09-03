@@ -68,6 +68,17 @@ body {
     margin-top: 20px;
 }
 
+.button-container .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: blue;
+  text-decoration: none;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
 /* Review Sectie Styling */
 .reviews-section {
     padding: 40px 0;
