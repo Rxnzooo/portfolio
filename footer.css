@@ -17,7 +17,7 @@ footer {
   display: flex;
   justify-content: space-between; /* Zorgt ervoor dat de inhoud naar beide kanten wordt uitgelijnd */
   align-items: flex-start;
-  max-width: 1200px; /* Maximaal 1200px breedte voor de inhoud */
+  max-width: 1140px; /* Max breedte voor de inhoud */
   margin: 0 auto; /* Zorgt ervoor dat de inhoud gecentreerd blijft */
   padding: 0 20px; /* Zorgt voor wat ruimte rondom de inhoud */
 }

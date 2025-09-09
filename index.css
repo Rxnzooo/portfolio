@@ -18,12 +18,20 @@ main, section, .content {
   padding: 0 20px; /* Voorkomt dat de content tegen de rand zit */
 }
 
+/* Algemene page wrapper voor content (bg blijft full-width) */
+.content-wrapper {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
 .section-about {
   display: grid;
   grid-template-columns: 1fr 1fr; /* Twee kolommen: 50% tekst, 50% afbeelding */
   align-items: start; /* Tekst uitlijnen aan de bovenkant */
   gap: 175px; /* Ruimte tussen tekst en afbeelding */
-  max-width: 1200px; /* Optioneel: Maximale breedte */
+  max-width: 1140px; /* Maximale breedte */
   margin: 0 auto; /* Centreert de sectie */
 }
 
@@ -40,7 +48,7 @@ main, section, .content {
 
 .section-projects {
   text-align: center;
-  max-width: 1200px;
+  max-width: 1140px;
   padding: 40px 20px;
 }
 
@@ -98,7 +106,7 @@ main, section, .content {
 .section-experience {
   text-align: left;
   padding: 40px 40px;
-  max-width: 1200px;
+  max-width: 1140px;
   margin-bottom: 40px;
 }
 
@@ -189,7 +197,7 @@ main, section, .content {
 
 /* Dual timeline (Education left, Experience right) */
 .dual-timeline {
-  max-width: 1200px;
+  max-width: 1140px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -381,7 +389,7 @@ main, section, .content {
 
 /* De container die de content beperkt tot 1200px */
 .reviews-section .content-wrapper {
-  max-width: 1200px;  /* Beperk de breedte van de inhoud */
+  max-width: 1140px;  /* Beperk de breedte van de inhoud */
   margin: 0 auto;  /* Centreer de inhoud */
   padding: 0 20px;  /* Padding aan de zijkanten van de content */
 }
