@@ -19,11 +19,7 @@
                     <li><a href="index.html" data-key="title-over-mij">Over mij</a></li>     
                     <li><a href="projecten.html" data-key="title-projecten">Projecten</a></li>
                     <li><a href="index.html#vaardigheden" data-key="title-vaardigheden">Vaardigheden</a></li>
-<<<<<<< Updated upstream
                     <li><a href="index.html#werkervaring" data-key="title-werkervaring">Werkervaring</a></li>
-=======
-                    <li><a href="index.html" data-key="title-werkervaring">Werkervaring</a></li>
->>>>>>> Stashed changes
                     <li><a href="contact.html" data-key="title-contact">Contact</a></li>
                 </ul>
             </nav>
@@ -54,7 +50,6 @@
         </div>
 
         <section class="project-grid content-wrapper">
-            <!-- Projecten dynamisch laden -->
             <div class="project">
                 <a href="project.html?id=6" data-key="project-1">
                     <img src="fotos/project1.png" alt="Project 1" data-key="project-1-img">
@@ -76,7 +71,8 @@
             <div class="reviews">
                 <div class="review">
                     <p data-key="review-text">"Perfect uitgevoerd, alles is naar wens en deed alles wat we van hem vroegen"<br><br> - Profuze</p>
-                </div>               
+                </div>
+            </div>
         </section>
 
         <section class="contact-section">
@@ -125,14 +121,14 @@
     <script>
         const projectGrid = document.querySelector('.project-grid');
         const filter = document.getElementById('project-filter');
-    
+
         // Functie om projecten te laden
         const loadProjects = (category = '') => {
             let url = 'http://localhost:3002/api/projects';
             if (category) {
                 url += `?category=${category}`;
             }
-    
+
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
@@ -151,10 +147,10 @@
                 })
                 .catch(error => console.error("Fout bij het ophalen van projecten:", error));
         };
-    
+
         // Laad standaard alle projecten
         loadProjects();
-    
+
         // Filter projecten wanneer de gebruiker een optie kiest
         filter.addEventListener('change', (e) => {
             loadProjects(e.target.value);
