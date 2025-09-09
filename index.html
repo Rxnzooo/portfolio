@@ -60,77 +60,85 @@
 
         <section id="projecten" class="section-projects">
             <h2 data-key="section-projects-title">Mijn projecten</h2>
-            <div class="project-image">
-                <a href="project.html?id=6" data-key="project-link">
-                    <img src="fotos/project1.png" alt="Project" data-key="project-img">
-                    <h3 data-key="project-name">Profuze</h3>
-                </a>
+            <div class="projects-grid">
+                <div class="project-image">
+                    <a href="project.html?id=6" data-key="project-link">
+                        <img src="fotos/project1.png" alt="Profuze project" data-key="project-img">
+                        <h3 data-key="project-name">Profuze</h3>
+                    </a>
+                </div>
+                <div class="project-image">
+                    <a href="project.html?id=9" data-key="project-link">
+                        <img src="fotos/hvs.png" alt="Hart van Sassem project" data-key="project-img">
+                        <h3 data-key="project-name">Hart van Sassem</h3>
+                    </a>
+                </div>
             </div>
             <div class="project-button">
                 <a href="projecten.html" class="btn" data-key="section-projects-button">Bekijk alle projecten</a>
             </div>
         </section>
 
-<<<<<<< Updated upstream
         <section id="vaardigheden" class="section-skills">
-=======
-        <section class="section-skills" id="vaardigheden">
->>>>>>> Stashed changes
             <h2 data-key="section-skills-title">Vaardigheden</h2>
-            <div class="timeline">
-                <div class="skill skill-1">
-                    <div class="skill-text">
-                        <h3 data-key="skill-html-css">HTML en CSS</h3>
-                        <p data-key="skill-html-css-desc">Standaard talen die ik heb geleerd aan het begin van de opleiding. Hiermee ook <br>een paar
-                            projecten gemaakt, zoals deze.</p>
+            <div class="dual-timeline">
+                <!-- Linkerkant: Opleiding / Schoolcarrière -->
+                <div class="timeline-col">
+                    <h3 class="timeline-title" data-key="timeline-education-title">Schoolcarrière</h3>
+                    <div class="timeline-list">
+                        <div class="timeline-item">
+                            <span class="dot"></span>
+                            <div class="content">
+                                <h4>ROC van Amstelland</h4>
+                                <p>Software Developer (MBO)</p>
+                            </div>
+                        </div>
+                        <!-- Voeg hier meer opleiding-items toe indien gewenst -->
                     </div>
                 </div>
-                <div class="skill skill-2">
-                    <div class="skill-text">
-                        <h3 data-key="skill-php">PHP</h3>
-                        <p data-key="skill-php-desc">Veel ervaring op gedaan met PHP, zoals: OOP, PDO en in frameworks</p>
-                    </div>
-                </div>
-                <div class="skill skill-3">
-                    <div class="skill-text">
-                        <h3 data-key="skill-frameworks">Frameworks</h3>
-                        <p data-key="skill-frameworks-desc">Door de jaren heen ervaring op gedaan met: React, Yii en Laravel</p>
-                    </div>
-                </div>
-                <div class="skill skill-2">
-                    <div class="skill-text">
-                        <h3 data-key="skill-cms">Content management systems</h3>
-                        <p data-key="skill-cms-desc">Veel ervaring met CMS. Website gemaakt in Wordpress en Webflow. <br>Webflow ligt mijn
-                            specialiteit.</p>
-                    </div>
-                </div>
-                <div class="skill skill-3">
-                    <div class="skill-text">
-                        <h3 data-key="skill-python">Python</h3>
-                        <p data-key="skill-python-desc">Aantal oefeningen met Python gedaan, zoals: Flask en JSON/API</p>
+
+                <!-- Rechterkant: Werkervaring -->
+                <div class="timeline-col">
+                    <h3 class="timeline-title" data-key="timeline-experience-title">Werkervaring</h3>
+                    <div class="timeline-list">
+                        <div class="timeline-item">
+                            <span class="dot"></span>
+                            <div class="content">
+                                <h4>Profuze</h4>
+                                <p>Stage Web Developer - Website bouwen en onderhouden in Webflow. <a href="project.html?id=6">Bekijk</a></p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="dot"></span>
+                            <div class="content">
+                                <h4>Hart van Sassem</h4>
+                                <p>Webflow project via Profuze. <a href="https://www.hartvansassem.nl">Bekijk</a></p>
+                            </div>
+                        </div>
+                        <!-- Voeg hier meer werkervaring-items toe indien gewenst -->
+
+                        
                     </div>
                 </div>
             </div>
         </section>
 
-<<<<<<< Updated upstream
         <section id="werkervaring" class="section-experience">
-=======
-        <section class="section-experience" id="werkervaring">
->>>>>>> Stashed changes
             <h2 data-key="section-experience-title">Werkervaring</h2>
-            <div class="experience-grid">
-                <div class="experience-text">
+            <div class="experience-timeline">
+                <div class="experience-card left">
                     <h3 data-key="experience-title">Stage bij Profuze</h3>
-                    <p data-key="experience-profuze">Profuze Web Developer<br></p>
-                    Werkzaamheden: Website maken en onderhouden voor Profuze, met Webflow. <a href="project.html?id=6" data-key="experience-view">Bekijk</a>
-                    <h3 data-key="experience-title-2">Opdrachtgever: Profuze</h3>
+                    <p data-key="experience-profuze">Profuze Web Developer</p>
+                    <p>Website maken en onderhouden voor Profuze, met Webflow. <a href="project.html?id=6" data-key="experience-view">Bekijk</a></p>
+                    <p><strong data-key="experience-title-2">Opdrachtgever: Profuze</strong></p>
                 </div>
-                <div class="experience-grid">
-                    <div class="experience-text">
-                        <h3 data-key="experience-title-2">Relevante werkervaring</h3>
-                        <p data-key="experience-2-profuze">Profuze Web Developer<br></p>
-                        Werkzaamheden: Website voor Hart van Sassem, met Webflow. <a href="https://www.hartvansassem.nl" data-key="experience-2-view">Bekijk</a>
+                <div class="center-line" aria-hidden="true"></div>
+                <div class="experience-card right">
+                    <h3 data-key="experience-title-2">Hart van Sassem</h3>
+                    <p data-key="experience-2-profuze">Profuze Web Developer</p>
+                    <p>Website voor Hart van Sassem, met Webflow. <a href="https://www.hartvansassem.nl" data-key="experience-2-view">Bekijk</a></p>
+                    <p><strong data-key="experience-title-2">Opdrachtgever: Profuze</strong></p>
+                </div>
             </div>
         </section>
     </main>

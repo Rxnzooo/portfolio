@@ -50,6 +50,15 @@ main, section, .content {
   text-align: left;
 }
 
+/* Grid for featured projects on homepage */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  align-items: start;
+  margin-top: 10px;
+}
+
 .project-image img {
   width: 100%;
   height: 200px;
@@ -60,6 +69,12 @@ main, section, .content {
 .project-image h3 {
   margin-top: 10px;
   font-size: 18px;
+}
+
+.project-image a {
+  display: block;
+  color: inherit;
+  text-decoration: none;
 }
 
 .project-button .btn {
@@ -73,6 +88,13 @@ main, section, .content {
   margin-top: 20px;
 }
 
+/* Responsive: stack projects on smaller screens */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .section-experience {
   text-align: left;
   padding: 40px 40px;
@@ -81,15 +103,67 @@ main, section, .content {
 }
 
 .section-experience h2 {
-  margin-bottom: 20px;
-  font-size: 24px;
+  margin-bottom: 24px;
+  font-size: 28px;
+  text-align: center; /* titel in het midden */
 }
 
-.experience-grid {
+/* Nieuwe opzet: twee blokken links/rechts met lijn in het midden */
+.experience-timeline {
+  --exp-gap: 40px;
+  position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  align-items: start;
+  grid-template-columns: 1fr 2px 1fr; /* midden kolom is de lijn */
+  column-gap: var(--exp-gap);
+  align-items: stretch;
+}
+
+.center-line {
+  grid-column: 2;
+  background: rgba(255, 255, 255, 0.25);
+  width: 2px;
+  align-self: stretch;
+  display: none; /* verticale middenlijn verbergen bij werkervaring */
+}
+
+.experience-card {
+  background: #1e1e1e;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 16px 18px;
+  position: relative; /* nodig voor connector-lijnen */
+}
+
+.experience-card.left { grid-column: 1; }
+.experience-card.right { grid-column: 3; }
+
+/* Verbindende lijnen en blauwe dots verwijderen bij werkervaring */
+.experience-card.left::after,
+.experience-card.right::before,
+.experience-card.left::before,
+.experience-card.right::after {
+  content: none;
+}
+
+.experience-card h3 {
+  margin: 0 0 8px 0;
+  font-size: 20px;
+}
+
+.experience-card p {
+  margin: 6px 0;
+}
+
+@media (max-width: 900px) {
+  .experience-timeline {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+  .center-line { display: none; }
+  .experience-card.left::after,
+  .experience-card.right::before,
+  .experience-card.left::before,
+  .experience-card.right::after { display: none; }
 }
 
 .experience-image img {
@@ -111,6 +185,79 @@ main, section, .content {
   text-align: center;
   margin-bottom: 40px;
   font-size: 32px;
+}
+
+/* Dual timeline (Education left, Experience right) */
+.dual-timeline {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.timeline-title {
+  margin: 0 0 16px 0;
+  font-size: 20px;
+}
+
+.timeline-col {
+  position: relative;
+  padding-left: 28px; /* ruimte voor de lijn en dot */
+}
+
+.timeline-list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.timeline-list::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.timeline-item {
+  position: relative;
+}
+
+.timeline-item .dot {
+  display: none; /* dots verwijderen bij vaardigheden */
+}
+
+.timeline-item .content {
+  background: #1e1e1e;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+.timeline-item h4 {
+  margin: 0 0 6px 0;
+  font-size: 18px;
+}
+
+.timeline-item p {
+  margin: 0;
+  color: #d1d5db; /* licht grijs voor subtitel/omschrijving */
+}
+
+.timeline-item a {
+  color: #60a5fa;
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .dual-timeline {
+    grid-template-columns: 1fr; /* onder elkaar op mobiel */
+    gap: 28px;
+  }
 }
 
 .timeline {
